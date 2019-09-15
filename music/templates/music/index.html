@@ -1,0 +1,35 @@
+{% extends 'music/base.html' %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{ user.username }}'s Albums</h3>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                {% for album in object_list %}
+                                
+                    <li><a href="{% url 'music:detail' album.id %}">{{ album.artist }}
+                        <img src="{{ album.album_logo }}" alt="" class="img-fluid" style="width: 400px; height: 300;">
+                    </a></li>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
